@@ -30,7 +30,7 @@ jobs:
       working-directory: guestbook/argo  # Cambia al directorio donde está el archivo app.yaml
       run: |
             ls -l
-            argocd app create -f app.yaml
+            argocd app create -f app.yml
             argocd app sync guestbook
 
    
