@@ -26,7 +26,9 @@ jobs:
       run: |
         argocd login $ARGOCD_SERVER --username $ARGOCD_USERNAME --password $ARGOCD_PASSWORD --insecure
 
-    - name: Apply Argo CD Application manifest
-      run: cd guestbook/argo || argocd app create -f app.yaml || argocd app sync guestbook
+    - name: Change directory and apply Argo CD manifest
+      working-directory: guestbook/argo  # Cambia al directorio donde está el archivo app.yaml
+      run: |
+        argocd app create -f app.yaml || argocd app sync guestbook
 
    
