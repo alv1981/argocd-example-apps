@@ -29,7 +29,8 @@ jobs:
     - name: Change directory and apply Argo CD manifest
       working-directory: guestbook/argo  # Cambia al directorio donde está el archivo app.yaml
       run: |
-            ls -l 
-            pwd
+            ls -l
+            argocd app create -f app.yaml
+            argocd app sync guestbook
 
    
